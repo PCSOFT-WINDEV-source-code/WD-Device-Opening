@@ -1,0 +1,205 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WIN_Progbar
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : WIN_Progbar
+ identifier : 0x26b1fe2d0643f684
+ internal_properties : CAAAAAgAAAD/v6D+yMPqI6dEMRGB5fxJ2kUlZJI+8g7PgJ8JqNN0YqSZSNBeYVwBkO0yoyowKmr9CyPPoAv5TpdYyvIsW/cz+l5Wvg/qRrJTOexuW7NGyVfBkmlY5xuhieNlypap4UMLTjVkD3rCFwbF1t7eoGj/HEqPSkTbZr/194/6spYHUrWn9V062qeCPjZQWib2Klk0MigwXGdgTmYFysVfBo+FGS1Ch8PoB78e9+X95s3FQpmm3XnJOkE1k6SsXKTYW0y2tsEGc9vyuz/JYNd6encBxTpSUadAEEmpjxM+Qtj5c3FjKd9gwZrNksoyvJGuZrsmxk666LF07Pcu/8/W/PRZL0NwTKd9N3zPPtAUU0n37rmne9KCtV2EGgMB8exyGHqhLvkWfmV/FDeL65I2fCfKx5/sG3w9nyS1Y0S5tTjN6h0t+n+wCzGS38UznCdnOLLnSirLPNykKiD/M6+Sk2dISNqPOYzWTfokJKLutWUlFJeJZfLo84swqz4oSA1Emin1cFVSVwH92Ganc5Bmj7ohpcqGKTwtwPNbMcSQz53yQW7Hh6qzTfkufIBNkHb+iThOyCnAsTOTa4Omn9aT3Z6HhHiXz7pl+f8vebzg86BTFUh6tlw0S2GilZVjjuMw7FXStYH+R7tsYqptGrjIk3CzNvvqy05etFROpkLnz4E4nE6ZMqhHuoZsKgmygpFhYsksYN3v35DQVyvwuAp8PKCtrhMuFxg51x03
+ properties :
+  width : 532
+  height : 135
+  widthClient : 526
+  heightClient : 129
+ controls :
+  -
+    name : STC_Title
+    identifier : 0x26b1fe2d0644f684
+    internal_properties : CAAAAAgAAAAz6N2cztATf3aZkEIkGHuwVg4Tutq8YsBlg/KInGKU1YdvcbEZwmwrxps7Zq24CUCappDHVah0O+NnfYRI2du/SZRoIBdLQXUXPYRM9H7tXp4jZH/TVXKzxSNG0QRhGEgUvQ+jao6qGCUFfKw+1RO9OeFkAuVYIQes+XsXCIM2HYPLsgp9PxwGbezVHo4fMU4GS8/srCVDalXVprFxlRnNVQZEVczKwizwLKW/Ws+clKTcIF8Tf6f51w9rarVkj2v9vGgDNrOobx/msFQn0bBuwU+ZeZlZrisXHStsqNPh0QGbRD608F4HgIYguo/Q5QpJG/j6mmYtws2z7//DTlJJz9oDPYyEj0WAvvBch8S6NiOqq+E4IJX8lz0oUtObeKTaN6tKR0bYs82u8alB6xnJAwc6xW6mIuFh0QN9r9XZLyWiqA3XYZI6BtZ6PiE0Km6qIBGxx6R63kh2j0V2cp6WpDm/LP14pb2POp2jUcONGTnC9ktvRSHj4Hem0HC+uH5k3yjcxNpBE6xukGtjQtTJDho=
+    properties :
+     x : 5
+     y : 4
+     width : 358
+     height : 20
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+  -
+    name : IMG_Programmed
+    identifier : 0x26b1fe2d0645f684
+    internal_properties : CAAAAAgAAAC0mQWRPEf6MSpYv2JLHzSCHujm5HA3wNW3xzqnIhJF3n8NwH0TLc5NWCX7bdvL/8D0ynFRsQCipzmj0PFYvxmFSJLsf5MJ6AC9Vf6l1J52L9w6UMpHALP+UqyUz4cVs7ArVZ/CajBQnebjdx97HAgd8fHEu3zbqjabVtgPqAQOV3XxxQ4nXqPBvvrWDn/7uP5mdBWK4STDr2MBBYvYeVV7BjzaxQrlkZf6QbmvF5B0/5wImpSuWBmndvuzKFHF+YH2hCl9ZfMosrtNf/e+PMVgaVsgH5XCtjFowF/s3IDTy9rciQxb35XIQW2lvA+OGhHFaIjBFDPCfyn79t0FcX7Vk0ZgUCv18ns7qEa5r0Gy4/tv3V98nwCHj23YUlFliIP+tWCrYten1TF63BYMB4BifgslgVroJR3rRZ8z5ZfsxNq6cKOaq8hmlUd/rMLlzezRgr6hCNMTiZmJu2O3Ni0Twc69teArgJ6FXv3sZ1+Jmx0y3YPu7U9HVAMc6QYX8Mk0/t1ANb6W4NgWX6IvNg4jpxpCamEx0mK87XjZmMcM3WiImY2aXs+NMNxEDBjRnj8AnFds+KtZBCUUOdB1hXM4DqR7iOEs2x7KkAn+geLuHvQL6pka7TCPZSNY7L/8xCdr6k8NFnO/giKv6gBDj9y6oc+2diw9fB0Wc+UhYz09B3DQ/k5GkzNqawYAuMA/hu+jqUsErGiShKBuebNVWFLh2NLMShpUOzmskgYgWTARt/KMlAwXhRxrUO80wDqKqeGDYJhbZ11xMMbRZdgqaLTWtf0qXlEokzLvO2JYEcW9hk9d9A5/RtNVBti0s4dn+oX8cWzT1O26BjFVwx57gRoewLjfOn9F/E4blpAuN7++aIlqyNJ87YYZhZuigXNcnm7IaC9/R/RTUd5BbVWBMbs=
+    properties :
+     x : 6
+     y : 30
+     width : 35
+     height : 34
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes : []
+  -
+    name : STC_ProgramPath
+    identifier : 0x26b1fe2d0646f684
+    internal_properties : CAAAAAgAAACc2XBtoi6Gt7h483qL32TtKrenZyeqkZnidcrwrDtvZkucnhg9V2DwdUgq2bxEdv1pTXJUwZc+bHWAFeIxH79nBd9xTGyANqGSwIdCW9Ssa3nl+7c+zTHNuzUaDpXR1W7vEllpj5ClTrpM5Yzf64PVvlv5mrKEg3AFkJgbHk5dvuZH94QUr6Pe1CC1OIf3YrH4ql35f3L3y8iGScbqG8a0XBYvA88JxmWrx44et8YnWUdQ5ig/DOBki/An5zpPWCP0tqAubL2qVmBg0uMVbpSAkKD02ya3yaLfk5XkQ3UnP/VnTngoPBRhjuod5J5BxiUtgViahrYzqaKbnwxFwFmwIg8kwyoqmJliZf+oWaanB38CcOaVdEzW+02NTeE6PrqfESzauS/P62Pt69Pc2gd1e0b/ThIKwA1yfotyiFgOy7CpmxFONpqar1qS+CdVeoQ7pBMeM9Y1sF6NlQ==
+    properties :
+     x : 47
+     y : 41
+     width : 464
+     height : 20
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+  -
+    name : IMG_Memory
+    identifier : 0x26b1fe2d0647f684
+    internal_properties : CAAAAAgAAAAZ5Y3cOn6Ezt3IwoJaUV+KJYWh+Fmaeemum2dJgUo+RabVQh2Vw0nMmVUAkpNVkZVeziCdV5T4FqGFDFqK5AGJQAdT5i3MpziSuDJCd7/L+O3yTPq+AM7ScUeKHMmJZ2KvOcS5591RRvrSY7n1wVDiVeWtWxIl2MnR6FRzZdOUfJrX8QjuSzXBGRiTV5O/os+Rml0h2Uxj98DKxqFsj1IULkTEynw7Aa6lH2qyBRCgdtODblD5jmfOL2kY4c/ylRydkv/yEQiu9utp0nM06we3oBppUjUVbDnznqzvs1sXm85ZbhVnd1pq9nE63wkJavXvyJhckvKQDGz3Hj0i6sE8Ycxd9LC8q/JnyeH3hHNXPRZdrr1t7ok2E8HQ1WFRDK0EURO4+vvNs3R/6xoqG73tRsu5f79mVxnPIwvQJnwSp8DEKH4jgfex1BqSMXaCmuyuCTwRVcwsXWbICKUQsFVET+6VukigYbaAcQKh20wyRTwgaRa3Z8Q/pWFCdoVPk1Sw52nZ331B4TfLt02LMKnumBXOYXRqOrzZvzK9JZ6SfsCLPr9zkRQUONCHSYRof8TGvf1AsQKg21w5nH+nOKAdqWynIUxw0kDqRgc5/EsJlPIWCcxwuywOqL/X0e6dtm03P1PvzcQ1PG6PxYGi86L/ZpkgdmhlAkmfhqTwEWsViL6CGWbttGyF1ZnsO+q2M64c0XfwC+ruDq85SFXcLj0eEoyQLivN2idMwkVngqM2BcE3iJpfl0oVhGYmWlM9g8Nr8MVPO2PNNo8FVXXjKTmcq+9EkXYzxwBP1JbWlwGHnQn+PJ/89qJ0pZMNPspCa+RPp9uPoK7nUABrH+BpEEIAsi1NsXEteg==
+    properties :
+     x : 1
+     y : 138
+     width : 32
+     height : 32
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes : []
+  -
+    name : STC_Explanation
+    identifier : 0x26b1fe2d0648f684
+    internal_properties : CAAAAAgAAACbagfOTDbcQWJRIGia8KEp1dLR0MV+9XbNLy10njmQZHML8yhDW7inNt5jd6+72OIilLRXXclNdQ58Cd1Jg7LdsOvw60kv59hM4A6vjikfgp2/F6YFzRUcgY5c8X+ZcGSOtjiwrdfuLf62xDwj9Vhix7d4vfPR04sv7n3wK7N6XXU5meaT13ozFz9uINpRd1Ke2sQOfO+M04tBgFpjI5G4Sb2D4Kf+K7dLhfsEfJHyQRYyYqRfLb3Ag1hDxZTO0glzfmDVR12twojkx+c33ZiSemVIA1n2+7Mm1nGkVrC2LI7iSu05DUDxB5TJZ1W8ENm7FOHdLUad01+EfuPghz6WhqPHreOzO200kU5HVF40VAjKuKq+QEHvHfmrPa1GKqRS2/lRjLOloUeVmQrSkLbCHn8K3SCoqSxO4eipML02OA5w1JwS/oDIeikaQAjysIDnxHKTnaZKvLjTjcs5SUHvWKvY8zCmzjL2HqmDxR9IOJ5CLGrkatRi+e5ZOPzHgyUXfEEKSigVvUKwdrcTqiwjw5TKjKVLGbKeAyi2OFCoGL3ewoCSN4IO4BOz1TaelBWJ0x1aCoQ6OUkZfDWVr2z5ohI6w91yWVEADt7xCl2e4MJsmvtBXe0Rh81/cA6SCVPWt3OyanEpN1Gs6TQ8hAzGng2Ic7Fka805yWc8
+    properties :
+     x : 1
+     y : 89
+     width : 524
+     height : 34
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+ menu :
+  name : _Menu
+  identifier : 0x28c5621493055686
+  internal_properties : CAAAAAgAAACCv199ARoPUfG3WAPSG9eefhOOjWMQrs8CrX6cGGGJPoSHWBq4PXhStOWc1YnAZMZ5+EFR1WTDn8CTOTiyLnXPpAR5X8rsRkPZrm1yZeYDDt4kRzDPLbUf4Sh/mD3kd1D8V2drCFLmjeQhgpw7GKGwHRga+ZdjSqXGIC3LD1RracZ230hOmUJTj+ABDW4IHrw4PflmVGgp8E9KnAf/gselRrzEY90l3Cr9N00QijFYYrbrl4qF4kdim1YX6jYT4ezQhbJsU84ENZsxzq+o0JVHYQ8rxck600VhGV04/ao=
+  options : []
+ languages :
+  - en-GB
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAADB+bkYP8ywDXlwjM4Yua3oSlTinv9MoEjuo9t9LeRecJ7bI4TmA0M8co1kyXIk3YW6d07UwGqQY0gpwbPY9ls8/FVKHA/8xkBZxI8+6c7tsUUVUGKXIFGokM1/IVF0
+ actionbar : {}
+ code_elements :
+  internal_properties : CAAAAAgAAABl+tISFJ4LIWW8spRANAhiJof+RvE6HRyAh9qYMXVUr/1Tjkr5BKWrKv3rT/M7tRlOGC9rulHHDqPRgNJeS3OpYTj08jY=
+  type_code : 1
+  p_codes :
+   -
+     code : |1-
+      
+      CONSTANT
+      	FILTER_Exe = "*.exe"
+      END
+   -
+     code : |1-
+      
+      // Fill the array for the list of applications
+      sPath   is string
+      
+      // Initialization
+      sPath = SysDir(srProgramFiles) + ["\"] + FILTER_Exe
+      
+      // Load the executable files
+      fListFile(sPath, "AddProgram",frRecursive+fdInterruptible)
+      
+      // Sort in ascending alphabetical order and select the first application
+      LooperSort("+WIN_Main.LOOP_Application.ATT_Application")
+      LooperSelectPlus(WIN_Main.LOOP_Application,1)
+      ExecuteProcess(WIN_Main.LOOP_Application,trtSelection)
+      
+      Close(WIN_Progbar)
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1-
+      
+     type : 40
+   -
+     type : 11
+   -
+     type : 12
+   -
+     type : 17
+   -
+     type : 13
+  procedures :
+   -
+     name : AddProgram
+     internal_properties : CAAAAAgAAABzBbOtwaa++kecCDAY8VjONhaOTuzcb57YwzyHy7Nr952XUfeMRLLXRF4hSt6Ui+Jq6QC69roco+E4hOhDfk0FSuFdRQJEAOhjns8LXFxiYbcEu8FT9NA5w/qZBJdFt33IFspvWygcTnrh1LI8QoOHlDR3Q5TmTvrgNWkXbgXT0nL0ChP/apf1W+gW7IrdMQzw51cAzqZVoyDagcMkPICkvX44+FrOiI2EWGgojc13DUBzt42eknIaWqr1dSvBdCv7g1JhukOluhba8rdY+pykVt0zob7V8cwpNV+tPVNZVVcpbIG4wmOEKyHDQhsQdOo20g==
+     procedure_id : 1635367608961398404
+     type_code : 14
+     code : |1-
+      // Summary: Callback automatically called when listing the files
+      // Syntax:
+      //AddProgramm (<Path>, <Name>, <Change>, <Pointer>)
+      //
+      // Parameters:
+      // 	Path: <specify the role of Path>
+      // 	Name: <specify the role of Name>
+      // 	Change: <specify the role of Change>
+      // 	Pointer: <specify the role of Pointer>
+      // Return value:
+      // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      PROCEDURE AddProgram(Path, Name, Change, Pointer)
+      
+      // Variable
+      clIcon is CAssociatedIcon
+      
+      // Path of the program
+      STC_ProgramPath = Path+Name
+      
+      // Retrieve the associated icon
+      IF clIcon:GetIcon(Path+Name,IMG_Memory..Name) THEN
+      	// Insert into the looper
+      	LooperAddLine(WIN_Main.LOOP_Application,dSaveImagePNG(IMG_Memory,inMemory),fExtractPath(Path+Name,fFileName),Path+Name)
+      	
+      	dEndDrawing(IMG_Memory)
+      END
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : ActivVISTA_0_D_10_43_07__02_11_2005
+resources :
+ string_res :
+  identifier : 0x18c5620d004f37e2
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

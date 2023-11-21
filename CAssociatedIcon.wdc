@@ -1,0 +1,181 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CAssociatedIcon
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x16b1fe2f015ffdb7
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  internal_properties : CAAAAAgAAABm4PVFe9JAHaoZ7pWrapr167xJBrSdz0axAnnnfYhOQaaZf6aFmw+87+hdnze0968KI3y7g0wMbri74fT3L3UE/39pGg==
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAADSnY540RadiAfGiy5+o8yrjyBFOSgxhKbNk687oaM+y/N4sG1BAQfnEnLTcYGeHyhz4Jujh9unnqWywMvttvV54k0QfYh8VerTs0DmwxZTG/i3yoOzA18l7d/dzLLl8HcUO1kN5T/4AUKrQw==
+     code : |1+
+      // This class is used to find out the icon of the program associated with a file
+      
+      // Define a SHFILEINFO
+      SHFILEINFO is Structure
+      	hIcon is int
+      	iIcon is 4-byte int
+      	dwAttributes is 8-byte int
+      	szDisplayName is string ASCIIZ on 255
+      	szTypeName is string ASCIIZ on 80
+      END
+      
+      // Declaration
+      CAssociatedIcon is Class
+      	// Members
+      	m_shfi             is SHFILEINFO 
+      	m_nHandleWithoutIcon is int
+      END
+      
+      CONSTANT
+      	FILE_ATTRIBUTE_ARCHIVE = 0x20
+      	FILE_ATTRIBUTE_COMPRESSED = 0x800
+      	FILE_ATTRIBUTE_DIRECTORY = 0x10
+      	FILE_ATTRIBUTE_HIDDEN = 0x2
+      	FILE_ATTRIBUTE_NORMAL = 0x0
+      	FILE_ATTRIBUTE_READONLY = 0x1
+      	FILE_ATTRIBUTE_SYSTEM = 0x4
+      	SHGFI_ATTRIBUTES = 0x800
+      	SHGFI_DISPLAYNAME = 0x200
+      	SHGFI_EXETYPE = 0x2000
+      	SHGFI_ICON = 0x100
+      	SHGFI_ICONLOCATION = 0x1000
+      	SHGFI_LARGEICON = 0x0
+      	SHGFI_LINKOVERLAY = 0x8000
+      	SHGFI_OPENICON = 0x2
+      	SHGFI_PIDL = 0x8
+      	SHGFI_SELECTED = 0x10000
+      	SHGFI_SHELLICONSIZE = 0x4
+      	SHGFI_SMALLICON = 0x1
+      	SHGFI_SYSICONINDEX = 0x4000
+      	SHGFI_TYPENAME = 0x400
+      	SHFI_USEFILEATTRIBUTES = 0x10
+      END
+     type : 131072
+  procedures :
+   -
+     name : Manufacturer
+     internal_properties : CAAAAAgAAACOIak3ACtTLWQM4KVmStgKSoGoOFO26ngDGxfPiZ+Hy2zqZERfeLlCQb/zXX2RZlmQxgCEFy5v0rl9lVilEoHfSPIlsGL9Ue+IUvc/Ion7ajPqlYsxJ2CqnbbKbMMsVWONYChGuJGPpgNGM+3+G2kfBjzWyLCZ3SMT4H6ByefNkJyHpw22HlraLk8JYcOBT2DryaRH/N+n39O0A0a0Pul6
+     procedure_id : 1635367617552252343
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructor()
+      
+      // Variable
+      sWindowsDir is string
+      
+      // Initialization
+      sWindowsDir = SysDir(srWindows)+"\system32\ping.exe"
+      
+      // Define the handle corresponding to the files without icon (using the ping.exe application found on all the Windows as reference of applications without icon)
+      :GetIcon(sWindowsDir,"")
+      :m_nHandleWithoutIcon = :m_shfi:iIcon
+     type : 589824
+   -
+     name : Destructor
+     procedure_id : 1635367617552317879
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructor()
+      
+     type : 655360
+   -
+     name : GetIcon
+     internal_properties : CAAAAAgAAABWVQppiYPepzbvDigtEr3AprLEaOdro3j8Cu4odE7PqX0bGCGD4t1sYgdR0PWPo3I9L3z/TUnlzgxzOepZ5tYdqeH+qB1F/o2rr+udldoKAnWz8ILsjyQU4ewugqSBxRzabjWF/oLlUzU8RUQokIJandtI72AthocAtU6qsDMjUVP5On6lufPnCi/NqHE9xkgbZWJyByfTaez7GqX/mA5JRPh9DljBRtq9ZYA4PBeH8ohnakoi1axs6Qbw1b5xCwdYEfhn5dBXl5OuKuh+yBXNhNfBPQ8Y0uwykq2UNzKu5QKjWlJRm5TSOBNAin2NI+YSCrWw9m6IhwvlRDNj0rpG/7O1s8uKzQ==
+     procedure_id : 1635367617552383415
+     type_code : 12
+     code : |1+
+      PROCEDURE GetIcon(LOCAL psPath is string, LOCAL psImageControl, bAccepFileWithoutIcon=False)
+      // psPath is the path of the object whose icon must be retrieved (can be a file, a directory or a disk)
+      // psImageControl is the image where the icon will be drawn
+      
+      // if a Web URL
+      IF Left(psPath,4)="http" THEN
+      	// use a temporary HTML file
+      	psPath = fTempPath()+"http.html"
+      	fOpen(psPath, foCreate)
+      	
+      ELSE
+      	
+      	// If it is not a file on disk with full path
+      	IF fFileExist(psPath) = False THEN
+      		
+      		// If it is a directory
+      		IF fDirectoryExist(psPath) = True THEN
+      			// add the final \
+      			psPath = CompleteDir(psPath)
+      			
+      		ELSE 
+      			// let's try with the paths of Windows
+      			sEnvironment is string
+      			sDir is string
+      			i is int
+      			
+      			// retrieve the environment variable
+      			sEnvironment = SysEnvironment("Path")
+      			sEnvironment = ExtractString(sEnvironment, 2, "=")
+      			
+      			// Browse the directories
+      			i=1; sDir = ExtractString(sEnvironment,i,";")
+      			WHILE sDir<>EOT AND sDir<>""
+      				IF fFileExist(CompleteDir(sDir)+psPath)=True THEN
+      					psPath = CompleteDir(sDir)+psPath
+      					BREAK
+      				END				
+      				i++; sDir = ExtractString(sEnvironment,i,";")
+      			END
+      		END	
+      	END
+      END
+      
+      // Interrogate the associated icon
+      API("Shell32", "SHGetFileInfo", psPath, ::FILE_ATTRIBUTE_NORMAL, &:m_shfi, Dimension(:m_shfi), ::SHGFI_ICON)
+      
+      // If it is a file without icon, don't take it
+      IF (:m_shfi:iIcon <> :m_nHandleWithoutIcon) OR (bAccepFileWithoutIcon) THEN
+      	IF :m_shfi:hIcon <> 0 THEN
+      		// Device Context of the control
+      		IF psImageControl <> "" THEN
+      			nDC is int
+      			nDC = dStartDrawing(psImageControl,dErase)
+      			
+      			IF nDC<>0 THEN
+      				// Draw the icon in an image control
+      				API("User32", "DrawIcon", nDC, 0, 0, :m_shfi:hIcon)
+      			ELSE
+      				Error(StringBuild(<§$0000§>,psImageControl), ErrorInfo())	
+      			END
+      		END
+      		
+      		RESULT True
+      	ELSE
+      		RESULT False
+      	END
+      ELSE
+      	RESULT False
+      END
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x3d6de48d467c66a6
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      en-GB : Error while retrieving the Device Context of %1
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,299 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : pListManagement
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x16b1fe2f016bfe15
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAABwy++xRUv/PhDm6zzY2uQ4obJPfswszt7l4XBZKOco3OpSqFVJlBuoxneTvKIfvrX3AYK3M3jn0Rp6pNyeEtpjtZHww60Q79BLRvuKcChwpG10Ax6bZl2AXAh2GQPZkxoIIDTcTeKc8vvlK/c3bwXBCregdErWtYFNuBhEdb8y4yxi+f4=
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      
+      CONSTANT
+      	APPLICATION_IMAGE = 1
+      	APPLICATION_VIDEO = 2
+      	APPLICATION_AUDIO = 3
+      END
+     type : 720896
+  procedures :
+   -
+     name : WriteRegistryIfNecessary
+     internal_properties : CAAAAAgAAAA4sOoNd58ps855nCIzosdkM17ZD5NliKdU5Ho23ZvsPQ7+PsZfapKiouCzdMgzIWe4WceSv7WX5rd6HL4CMnhuz7NMaYKtW+M8i7s73VuRneSX3PeX2s9cLoPuzE+oagsJ6Pdd1tnF/jDjnpn4Mrngd91RGLaPKlEYheSqQcFHPj2Xx1VWS7ShdRocPBGdpBy495pDpmIQRieGnDq9GCI2hP2zZr7b
+     procedure_id : 1635367617553038869
+     type_code : 15
+     code : |1-
+      PROCEDURE PRIVATE WriteRegistryIfNecessary(sBranch,sKey,sValue)
+      
+      // Variables
+      bRun       is boolean
+      sCurrentValue is string
+      
+      //read the current value
+      sCurrentValue=RegistryQueryValue(sBranch,sKey,bRun) 
+      
+      //current value OK or update of the value OK
+      IF (bRun _AND_ sCurrentValue=sValue) _OR_  ((RegistryExist(sBranch)  _OR_ RegistryCreateKey(sBranch)) _AND_ RegistrySetValue(sBranch,sKey,sValue)) THEN
+      	RESULT True
+      ELSE
+      	ErrorPropagate(<§@18c519d3002111c80000§>+CR)
+      	RESULT False
+      END
+     type : 458752
+   -
+     name : DeleteApplication
+     internal_properties : CAAAAAgAAADKJdag9JaYEcjYV2GmJHs+eQYeSnYxvea6HBRBMYoKmwxJ67oJdBDpouoWGC5Yqe6qkgbDlggVM7IOfQacjhQh2ZoIDAjIP85gaPITm2Cv1BX6anwMQe6Naxgjg94Dkzp6Sepak1QYU0fyjS73FypXcDZMPct8J7yn7Lu3vGzcUaFD+7m6FXxZB6QGDoMHkjByZPf2KaI=
+     procedure_id : 1635367617553104405
+     type_code : 15
+     code : |1-
+      // Summary: Deletes an application from the registry
+      // Syntax:
+      //[ <Result> = ] DeleteApplication (<sAppName> is string)
+      //
+      // Parameters:
+      //	sAppName (string): Name of the application
+      // Return value:
+      // 	boolean: // True if OK, False otherwise
+      //
+      // Example:
+      // Indicate an example.
+      //
+      PROCEDURE DeleteApplication(sAppName is string)
+      
+      // Deleting the application
+      IF NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\ShowPicturesOnArrival\",sAppName) _OR_
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayVideoFilesOnArrival\",sAppName) _OR_
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayMusicFilesOnArrival\",sAppName) _OR_
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\","Action")  _OR_ 
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\","DefaultIcon") _OR_ 
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\","Provider") _OR_ 
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\","InvokeProgID") _OR_ 
+      	NOT DeleteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\","InvokeVerb") THEN
+      	RESULT False
+      ELSE
+      	RegistryDeleteKey("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName+"\")
+      	RESULT True
+      END
+     type : 458752
+   -
+     name : AddApplication
+     internal_properties : CAAAAAgAAAAUbxBmMsjvydqa9y1KNpui70SMnMJjDZ4I8mwVrfTSw3Zb0cwxipAVwIhq8D6W1S7k3NTlTl4Nw5BchR5MnIQlR7AKujyyzzKm3vpcrk+w22hlw0s3eCWyTiOOgAXWSGWFXGM5DsOXUFLFsMfWMltGf8VJgIrX0mkSxzboZ9N55KBiHJA5uOdSPlP1w2YuX3aoHjk07+Q=
+     procedure_id : 1635367617553169941
+     type_code : 15
+     code : |1+
+      // Summary: Adds an application into the registry
+      // Syntax:
+      //[ <Result> = ] AddApplication (<sFullApplicationName> is string, <sCaption> is string, <AppType> [, <sCommand> is string])
+      //
+      // Parameters:
+      //	sFullApplicationName (string): Full name of the application
+      //	sCaption (string): Caption to display
+      // 	AppType: Type of application
+      //	sCommand (string - default value="%1"): Command line of the application
+      // Return value:
+      // 	boolean: // True if OK, False otherwise
+      //
+      // Example:
+      // Indicate an example.
+      //
+      PROCEDURE AddApplication(sFullApplicationName is string, sCaption is string, AppType, sCommand is string="%1")
+      
+      // Variable
+      sAppName is string
+      bReturn is boolean = False
+      
+      // Initialization
+      sAppName = fExtractPath(sFullApplicationName,fFileName)
+      
+      // Initialization
+      SWITCH AppType
+      	CASE APPLICATION_AUDIO:
+      		bReturn = WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayMusicFilesOnArrival",sAppName,"")
+      	CASE APPLICATION_IMAGE:
+      		bReturn = WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\ShowPicturesOnArrival",sAppName,"")
+      	CASE APPLICATION_VIDEO:
+      		bReturn = WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayVideoFilesOnArrival",sAppName,"")	
+      END
+      
+      IF NOT bReturn THEN
+      	RESULT False
+      END
+      
+      IF NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName,"Action",sCaption)  _OR_ 
+      	NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName,"DefaultIcon",sFullApplicationName) _OR_ 
+      	NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName,"Provider",sAppName) _OR_ 
+      	NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName,"InvokeProgID",sAppName) _OR_ 
+      	NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sAppName,"InvokeVerb","open") _OR_
+      	NOT WriteRegistryIfNecessary("HKEY_LOCAL_MACHINE\SOFTWARE\Classes\"+sAppName+"\shell\open\command","",sFullApplicationName+" "+sCommand) _OR_
+      	NOT WriteRegistryIfNecessary("HKEY_CLASSES_ROOT\"+sAppName+"\shell\open\command","",sFullApplicationName+" "+sCommand) THEN
+      	RESULT False
+      ELSE			
+      	RESULT True
+      END
+      
+     type : 458752
+   -
+     name : DeleteRegistryIfNecessary
+     internal_properties : CAAAAAgAAAAWYRKhYMz4ObbGC80q2pveG5C8nDpfIT78xjilzViql8JP4WRZPlRdXDR2EFYC5cogkGwl3rJ5k+wISY5UUPQ5I5waOiS2M8q60h6qdI3mlSarAe2Fzlt4NJmkZvvEHn+Laokr3JE95jijvl0EOHFQ7aunKqCVMFcAvZzuDRH/Nr4QMrr3lr0YzLnbIQSEBd371Tsy7eY=
+     procedure_id : 1635367617553235477
+     type_code : 15
+     code : |1+
+      // Summary: Deletes a register if necessary
+      // Syntax:
+      //[ <Result> = ] DeleteRegistryIfNecessary (<sRegistry> is string, <sKey> is string)
+      //
+      // Parameters:
+      //	sRegister (string): Register
+      //	sKey (string): Key
+      // Return value:
+      // 	boolean: // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      //	sRegistry (string): <specify the role of sRegistry>
+      PROCEDURE PRIVATE DeleteRegistryIfNecessary(sRegistry is string, sKey is string)
+      
+      // Variable
+      bExist is boolean
+      
+      // Initialization
+      RegistryQueryValue(sRegistry,sKey,bExist)
+      
+      // The key is deleted if it exists
+      IF bExist THEN
+      	RESULT  RegistryDeleteValue(sRegistry,sKey)
+      ELSE
+      	RESULT True
+      END
+      
+     type : 458752
+   -
+     name : GetApplicationList
+     procedure_id : 1635367617553301013
+     type_code : 15
+     code : |1-
+      // Summary: Retrieves the list of configured applications, with the type of application passed in parameter
+      // Syntax:
+      //[ <Result> = ] GetApplicationList (<ApplicationType>)
+      //
+      // Parameters:
+      // 	ApplicationType: <specify the role of ApplicationType>
+      // Return value:
+      // 	string: //  	 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      PROCEDURE GetApplicationList(ApplicationType)
+      
+      // Variables
+      sList       is string
+      sFinalList is string
+      sValue      is string
+      
+      // Initialization
+      SWITCH ApplicationType
+      	CASE APPLICATION_AUDIO:
+      		sList = RegistryListValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayMusicFilesOnArrival",False)
+      	CASE APPLICATION_IMAGE:
+      		sList = RegistryListValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\ShowPicturesOnArrival",False)
+      	CASE APPLICATION_VIDEO:
+      		sList = RegistryListValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\EventHandlers\PlayVideoFilesOnArrival",False)	
+      END
+      
+      // Delete the default Windows programs from the list
+      FOR EACH string sValue of sList SEPAREE by CR
+      	IF NOT(sValue [= "MS") THEN
+      		sFinalList += [CR] + sValue	
+      	END
+      END
+      
+      RESULT sFinalList	
+     type : 458752
+   -
+     name : GetPathApp
+     procedure_id : 1635367617553366549
+     type_code : 15
+     code : |1-
+      // Summary: Retrieves the path of an application
+      // Syntax:
+      //[ <Result> = ] GetPathApp (<sApplicationName> is string)
+      //
+      // Parameters:
+      //	sApplicationName (string): Name of the application
+      // Return value:
+      // 	string: //  	 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      PROCEDURE GetPathApp(sApplicationName is string)
+      
+      // Variables
+      ResRead is string
+      ResExecute is  boolean
+      
+      // Read the path
+      ResRead = RegistryQueryValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers\Handlers\"+sApplicationName,"DefaultIcon", ResExecute)
+      
+      RESULT ResRead
+     type : 458752
+   -
+     name : FormatPath
+     procedure_id : 1635367617553432085
+     type_code : 15
+     code : |1+
+      // Summary: Formats the file's path
+      // Syntax:
+      //[ <Result> = ] FormatPath (<sPath>)
+      //
+      // Parameters:
+      //	sPath: File path
+      // Return value:
+      // 	ANSI string: // 	None
+      //
+      PROCEDURE FormatPath(LOCAL sPath)
+      
+      // Variable
+      sFinalPath is string
+      nPosition    is int
+      
+      sPath = Replace(sPath,"\\","\")
+      
+      // Is there any quote ?
+      IF StringCount(sPath,"""") =2 THEN
+      	nPosition = Position(sPath,"""",0,FromEnd)
+      	IF sPath [= """" THEN
+      		sFinalPath = sPath[[2 TO nPosition-1]]
+      	END
+      ELSE
+      	sFinalPath = sPath
+      END
+      
+      RESULT sFinalPath
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_Collection1
+resources :
+ string_res :
+  identifier : 0x18c519d3002111c8
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      en-GB : "Unable to update the system information. This operation requires an execution as ADMINISTRATOR. Restart the application as administrator (right click the executable and choose 'Run as' in Windows XP or 'Run as Administrator' in Windows Vista). "
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,115 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WD Device Opening
+ major_version : 28
+ minor_version : 0
+ type : 4097
+ description : The purpose of the project is to explain how an application can be added to the list of available applications when connecting a device.
+ subtype : 0
+project :
+ identifier : 0x0
+ internal_properties : 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
+ configurations :
+  -
+    name : WD Device Opening
+    internal_properties : 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
+    configuration_id : 13469279537371253202
+    type : 1
+    generation_name : WD Device Opening.exe
+    version :
+     version : VI200030C
+     internal_generation_version : 1
+    icon_filename : .\icon.ico
+    language : 2
+    new_features_help :
+     name : ""
+     internal_properties : CAAAAAgAAADQLEjw1QATVM4W2JG+GGcQmLSlvcwbAfaSWrmAktw/w6BZzhxG7vdVtvoTXGiYSK68DuCrVRITCQ85
+ elements :
+  identifier : 0x4ac5f818006a08cc
+  elements :
+   -
+     name : WIN_List
+     identifier : 0x48fd988f00000048
+     internal_properties : CAAAAAgAAADUsjx4Rzx0d8Bk2f29hdc0JGcTS3D52BdOz6k30HgcHCAuZS/lE4Q/rZcB/4d5AffBQQ==
+     physical_name : .\WIN_List.wdw
+     type : 2
+   -
+     name : CAssociatedIcon
+     identifier : 0x48c52ef80004aa21
+     internal_properties : CAAAAAgAAACd+fWpFkPr9EPjWHw8BVARBVAsPL763tCwCZgU6VTGAg4SQ7FmkgW+LBaAeDioUECIiA==
+     physical_name : .\CAssociatedIcon.wdc
+     type : 4
+   -
+     name : WinDevMessageBox
+     identifier : 0x45fc0f9200a7f6e1
+     internal_properties : CAAAAAgAAABagzUkZTeqjntPlecB1yt1c12HgGde33S1YzbgC3gwHKqPnSWTl1+C4Qk2+x/XLQ==
+     physical_name : .\WinDevMessageBox_1.WDW
+     type : 2
+   -
+     name : TEST_List
+     identifier : 0x4acb02ad002d1084
+     internal_properties : CAAAAAgAAADwTih0s+jA2+RIvVEh3CtoyJnHD8x5q2euw+Rm5yPxL9lZHlbBf+ijwXtlU9MN9evVXQ==
+     physical_name : .\TEST_List.wxt
+     type : 17
+   -
+     name : WIN_Progbar
+     identifier : 0x48c5621700055d9b
+     internal_properties : CAAAAAgAAAAzD2u/jPmx6vWZigJiVpLncxxOnhWelI2OP8yWj7llo1Hflu44wDdwkox2QsI+Oq4WHg==
+     physical_name : .\WIN_Progbar.wdw
+     type : 2
+   -
+     name : WIN_Main
+     identifier : 0x48c51d8d0003a3b3
+     internal_properties : CAAAAAgAAAAVcX2hHnszbHvLMNSkUQjxfQhE5GHSB6d2YTzZ+BD6LsJeF+0++m0mRP74wECwSLgAAA==
+     physical_name : .\WIN_Main.wdw
+     type : 2
+   -
+     name : WinDevDialogBox
+     identifier : 0x45fc0f9200aff7cb
+     internal_properties : CAAAAAgAAACwKUPSO0ngwCGOya0FRYtp5dkDnaaaX7P0YHavvM8ZZeVMgoDm7aFEp0+Mrck9Rw==
+     physical_name : .\WinDevDialogBox_1.WDW
+     type : 2
+   -
+     name : pListManagement
+     identifier : 0x48c519f600029b3c
+     internal_properties : CAAAAAgAAADpZdE18q8HKDfHzMCw35jhCRhQGLGqyZVOC4KfKu4k9AQ8WSvyDnkyUMo0jBTMtCTsdA==
+     physical_name : .\pListManagement.wdg
+     type : 7
+  other_elements : []
+  net_assemblies : []
+  uwp_api : []
+  external_components : []
+  internal_components : []
+ report_and_queries_enabled : false
+ common_generation_directory : true
+ languages :
+  - en-GB
+ code_elements :
+  internal_properties : CAAAAAgAAABQ63RwWuf4x9rtmnvg7nHVm/0JBAVSvF5Tt0ecdO8df2PwBvv8DDeBJOBbXYUXfDxCz3CW/rPVT+zMgR1aE7M629xgw1fDi2KES5gpSQ==
+  type_code : 0
+  p_codes :
+   -
+     type : 196621
+   -
+     type : 196627
+     enabled : false
+  orphans :
+   -
+     name : WD Device Opening
+     identifier : 0x4ac5f8180072091a
+     code_elements :
+      type_code : 159
+      p_codes : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+rad :
+ internal_properties : CAAAAAgAAABhIL0UXeZmxDJxY3Xy0Q==
+project_explorer :
+ explorer_type : project
+resources :
+ string_res :
+  identifier : 0x0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAAd98VSJfHHqE3P0QHwrwdhn7ig8dWBR6valpUTgnAMTVXiDg==
